@@ -1,530 +1,579 @@
 <!doctype html>
 <html lang="tr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Scrabble Çözücü | Kullanım Şartları</title>
-    <meta name="description" content="Scrabble Çözücü mobil uygulaması kullanım şartları." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #f4f1eb;
-        --surface: #faf8f4;
-        --surface-2: #eeeae0;
-        --text: #1a1714;
-        --text-2: #4a4540;
-        --muted: #8a8078;
-        --primary: #1a5c4a;
-        --primary-light: #2a7a62;
-        --accent: #c8873a;
-        --accent-light: #e8a855;
-        --border: rgba(26, 23, 20, 0.1);
-        --border-strong: rgba(26, 23, 20, 0.18);
-        --ink: #1a1714;
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Scrabble Çözücü · Kullanım Şartları</title>
+  <meta name="description" content="Scrabble Çözücü mobil uygulaması kullanım şartları." />
+  <meta name="theme-color" content="#0f0f10" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #0f0f10;
+      --surface:   #17171a;
+      --surface-2: #1e1e22;
+      --surface-3: #26262c;
+      --border:    rgba(255,255,255,0.07);
+      --border-2:  rgba(255,255,255,0.12);
+      --text:      #f0efe8;
+      --text-2:    #a8a59e;
+      --text-3:    #68655f;
+      --blue:      #60a5fa;
+      --blue-dim:  rgba(96,165,250,0.1);
+      --blue-border: rgba(96,165,250,0.22);
+      --amber:     #f5a623;
+      --amber-dim: rgba(245,166,35,0.1);
+      --amber-border: rgba(245,166,35,0.25);
+      --red:       #f87171;
+      --red-dim:   rgba(248,113,113,0.1);
+      --red-border: rgba(248,113,113,0.22);
+      --radius:    14px;
+      --mono:      'JetBrains Mono', monospace;
+    }
 
-      * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-      html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
 
-      body {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 16px;
-        line-height: 1.7;
-        color: var(--text);
-        background-color: var(--bg);
-        background-image:
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='%231a1714' fill-opacity='0.04'/%3E%3C/svg%3E");
-        min-height: 100vh;
-      }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      padding-bottom: env(safe-area-inset-bottom, 24px);
+      -webkit-font-smoothing: antialiased;
+    }
 
-      .wrapper {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 24px 80px;
-      }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-      /* ── HERO ── */
-      .hero {
-        padding: 64px 0 48px;
-        border-bottom: 1px solid var(--border-strong);
-        animation: fadeUp 0.7s ease both;
-      }
+    /* ── TOP BAR ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      padding-top: calc(14px + env(safe-area-inset-top, 0px));
+      background: rgba(15,15,16,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
 
-      .brand-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--primary);
-        background: rgba(26, 92, 74, 0.08);
-        border: 1px solid rgba(26, 92, 74, 0.2);
-        padding: 6px 14px;
-        border-radius: 4px;
-        margin-bottom: 28px;
-      }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
 
-      .brand-label::before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--primary);
-      }
+    .topbar-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+    }
 
-      h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: clamp(44px, 7vw, 80px);
-        font-weight: 900;
-        line-height: 0.95;
-        letter-spacing: -0.02em;
-        color: var(--ink);
-        margin-bottom: 24px;
-      }
+    .topbar-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
 
-      h1 em {
-        font-style: italic;
-        color: var(--accent);
-      }
+    .topbar-doc {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--blue);
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
 
-      .hero-desc {
-        max-width: 600px;
-        font-size: 17px;
-        font-weight: 300;
-        color: var(--text-2);
-        line-height: 1.65;
-        margin-bottom: 28px;
-      }
+    /* ── HERO ── */
+    .hero {
+      padding: 36px 20px 28px;
+      border-bottom: 1px solid var(--border);
+    }
 
-      .meta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-      }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 14px;
+    }
 
-      .chip {
-        font-family: 'DM Mono', monospace;
-        font-size: 11.5px;
-        color: var(--muted);
-        background: var(--surface);
-        border: 1px solid var(--border-strong);
-        padding: 5px 12px;
-        border-radius: 3px;
-      }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
 
-      .chip a {
-        color: var(--primary);
-        text-decoration: none;
-        font-weight: 500;
-      }
+    .hero h1 span { color: var(--blue); }
 
-      /* ── BODY GRID ── */
-      .body-grid {
-        display: grid;
-        grid-template-columns: 220px 1fr;
-        gap: 40px;
-        margin-top: 48px;
-      }
+    .hero-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
 
-      /* ── TOC ── */
-      .toc {
-        position: sticky;
-        top: 32px;
-        align-self: start;
-      }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-      .toc-label {
-        font-family: 'DM Mono', monospace;
-        font-size: 10px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 16px;
-        display: block;
-      }
+    .chip {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-3);
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      padding: 5px 11px;
+      border-radius: 20px;
+    }
 
-      .toc-list {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
+    .chip a { color: var(--blue); font-family: var(--mono); font-size: 10.5px; }
 
-      .toc-list a {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 7px 10px;
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 13.5px;
-        font-weight: 400;
-        border-radius: 4px;
-        transition: color 0.2s, background 0.2s;
-        border-left: 2px solid transparent;
-      }
+    /* ── QUICK NAV ── */
+    .quick-nav {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0 20px;
+      display: flex;
+      gap: 4px;
+    }
 
-      .toc-list a:hover,
-      .toc-list a.active {
-        color: var(--accent);
-        background: rgba(200, 135, 58, 0.08);
-        border-left-color: var(--accent);
-      }
+    .quick-nav::-webkit-scrollbar { display: none; }
 
-      .toc-list .num {
-        font-family: 'DM Mono', monospace;
-        font-size: 10px;
-        color: var(--primary);
-        min-width: 16px;
-      }
+    .quick-nav a {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 4px;
+      border-bottom: 2px solid transparent;
+      color: var(--text-3);
+      font-size: 12.5px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+      margin-right: 12px;
+    }
 
-      /* ── SECTIONS ── */
-      .sections {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
+    .quick-nav a:hover,
+    .quick-nav a.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+      text-decoration: none;
+    }
 
-      .section-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        padding: 32px 36px;
-        transition: border-color 0.2s;
-        animation: fadeUp 0.6s ease both;
-      }
+    .quick-nav .n {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-3);
+    }
 
-      .section-card:hover {
-        border-color: var(--border-strong);
-      }
+    /* ── CONTENT ── */
+    .content { padding: 0 20px; }
 
-      .section-card.highlight {
-        background: #fdf7e8;
-        border-color: rgba(200, 135, 58, 0.3);
-      }
+    /* ── SECTION CARD ── */
+    .section-card {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
 
-      .section-num {
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        color: var(--primary);
-        letter-spacing: 0.08em;
-        margin-bottom: 8px;
-        display: block;
-      }
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
 
-      h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--ink);
-        margin-bottom: 16px;
-        line-height: 1.2;
-      }
+    .sec-num {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      color: var(--blue);
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-border);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+    }
 
-      p {
-        color: var(--text-2);
-        font-size: 15px;
-        margin-bottom: 12px;
-        font-weight: 300;
-      }
+    .sec-label-text {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-      p:last-child { margin-bottom: 0; }
+    h2 {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
 
-      ul {
-        padding-left: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 4px;
-      }
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
 
-      li {
-        color: var(--text-2);
-        font-size: 15px;
-        font-weight: 300;
-        padding-left: 20px;
-        position: relative;
-      }
+    p:last-child { margin-bottom: 0; }
 
-      li::before {
-        content: '—';
-        position: absolute;
-        left: 0;
-        color: var(--accent);
-        font-size: 13px;
-      }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 6px;
+    }
 
-      /* ── CONTACT BOX ── */
-      .contact-box {
-        margin-top: 20px;
-        padding: 18px 22px;
-        background: var(--surface-2);
-        border-radius: 6px;
-        border-left: 3px solid var(--accent);
-      }
+    li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-2);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
 
-      .contact-box strong {
-        display: block;
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 6px;
-      }
+    li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--blue);
+      font-size: 18px;
+      line-height: 1.2;
+    }
 
-      .contact-box a {
-        color: var(--primary);
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: 500;
-      }
+    /* Yasaklı kullanım — kırmızı liste */
+    .danger-list li::before { color: var(--red); }
 
-      .contact-box a:hover { text-decoration: underline; }
+    /* ── NOTICE BOX ── */
+    .notice-box {
+      background: var(--amber-dim);
+      border: 1px solid var(--amber-border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-top: 2px;
+    }
 
-      /* ── FOOTER ── */
-      footer {
-        margin-top: 60px;
-        padding-top: 24px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
+    .notice-box p { color: var(--text-2); margin: 0; }
 
-      .footer-brand {
-        font-family: 'Playfair Display', serif;
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--ink);
-      }
+    .notice-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 8px;
+      display: block;
+    }
 
-      .footer-meta {
-        font-family: 'DM Mono', monospace;
-        font-size: 11px;
-        color: var(--muted);
-        letter-spacing: 0.06em;
-      }
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-top: 16px;
+      gap: 12px;
+      color: inherit;
+      text-decoration: none;
+    }
 
-      /* ── ANIMATIONS ── */
-      @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(18px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+    .contact-box-inner strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 5px;
+    }
 
-      .section-card:nth-child(1)  { animation-delay: 0.05s; }
-      .section-card:nth-child(2)  { animation-delay: 0.10s; }
-      .section-card:nth-child(3)  { animation-delay: 0.15s; }
-      .section-card:nth-child(4)  { animation-delay: 0.20s; }
-      .section-card:nth-child(5)  { animation-delay: 0.25s; }
-      .section-card:nth-child(6)  { animation-delay: 0.30s; }
-      .section-card:nth-child(7)  { animation-delay: 0.35s; }
-      .section-card:nth-child(8)  { animation-delay: 0.40s; }
-      .section-card:nth-child(9)  { animation-delay: 0.45s; }
-      .section-card:nth-child(10) { animation-delay: 0.50s; }
+    .contact-box-inner span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--blue);
+      word-break: break-all;
+    }
 
-      /* ── RESPONSIVE ── */
-      @media (max-width: 760px) {
-        .body-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-          margin-top: 32px;
-        }
+    .contact-box-arrow {
+      font-size: 18px;
+      color: var(--text-3);
+      flex-shrink: 0;
+    }
 
-        .toc { position: static; }
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 20px;
+      padding-bottom: max(28px, env(safe-area-inset-bottom, 28px));
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
-        .toc-list {
-          flex-direction: row;
-          flex-wrap: wrap;
-          gap: 6px;
-        }
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
 
-        .toc-list a {
-          border-left: none;
-          border-bottom: 2px solid transparent;
-          padding: 5px 10px;
-          font-size: 12.5px;
-        }
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-3);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
 
-        .toc-list a:hover,
-        .toc-list a.active {
-          border-left-color: transparent;
-          border-bottom-color: var(--accent);
-        }
-
-        .section-card { padding: 24px 22px; }
-
-        h1 { font-size: 40px; }
-
-        footer { flex-direction: column; align-items: flex-start; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <!-- HERO -->
-      <header class="hero">
-        <div class="brand-label">Scrabble Çözücü</div>
-        <h1>Kullanım<br /><em>Şartları</em></h1>
-        <p class="hero-desc">
-          Bu şartlar, Scrabble Çözücü mobil uygulamasını kullanırken geçerli
-          kuralları, kullanıcı sorumluluklarını, içerik politikalarını ve hesap
-          işlemlerini açıklar.
-        </p>
-        <div class="meta-row">
-          <span class="chip">Yürürlük: 24 Mayıs 2026</span>
-          <span class="chip"><a href="mailto:scrabblecozucupro@gmail.com">scrabblecozucupro@gmail.com</a></span>
-        </div>
-      </header>
-
-      <!-- BODY -->
-      <div class="body-grid">
-        <!-- TOC -->
-        <nav class="toc" aria-label="İçindekiler">
-          <span class="toc-label">İçindekiler</span>
-          <ul class="toc-list">
-            <li><a href="#acceptance"><span class="num">01</span>Kabul</a></li>
-            <li><a href="#service"><span class="num">02</span>Hizmetin amacı</a></li>
-            <li><a href="#account"><span class="num">03</span>Hesap</a></li>
-            <li><a href="#content"><span class="num">04</span>Kullanıcı içerikleri</a></li>
-            <li><a href="#moderation"><span class="num">05</span>Moderasyon</a></li>
-            <li><a href="#prohibited"><span class="num">06</span>Yasaklı kullanım</a></li>
-            <li><a href="#ocr"><span class="num">07</span>Fotoğraf ve OCR</a></li>
-            <li><a href="#availability"><span class="num">08</span>Doğruluk ve erişilebilirlik</a></li>
-            <li><a href="#deletion"><span class="num">09</span>Hesap silme</a></li>
-            <li><a href="#contact"><span class="num">10</span>İletişim</a></li>
-          </ul>
-        </nav>
-
-        <!-- SECTIONS -->
-        <main class="sections">
-          <section class="section-card" id="acceptance">
-            <span class="section-num">01 — Şartların Kabulü</span>
-            <h2>Şartların kabulü</h2>
-            <p>Scrabble Çözücü uygulamasını kullanarak bu Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş sayılırsınız. Bu şartları kabul etmiyorsanız uygulamayı kullanmamalısınız.</p>
-          </section>
-
-          <section class="section-card" id="service">
-            <span class="section-num">02 — Hizmetin Amacı</span>
-            <h2>Hizmetin amacı</h2>
-            <p>Scrabble Çözücü; kelime oyunlarında oyun, sözlük, alfabe, desen ve tahta yönetimi üzerinden çözüm önerileri sunan yardımcı bir araçtır. Uygulama resmî Scrabble markasıyla veya marka sahipleriyle bağlantılı olmadığı gibi piyasadaki hiçbir mudail, benzeri uygulamalarla da ilişkili değildir. Evrensel bir yardımcı araç olarak tasarlanmış olup belirli bir oyun, platform veya sözlükle sınırlı değildir.</p>
-            <p>Uygulama; kullanıcıların kelime üretme, hamle değerlendirme, sözlük kontrolü ve tahta yönetimi süreçlerini kolaylaştırmayı amaçlar. Başka platform, turnuva veya oyunların kurallarına uyma sorumluluğu kullanıcıya aittir.</p>
-          </section>
-
-          <section class="section-card" id="account">
-            <span class="section-num">03 — Hesap Oluşturma ve Güvenlik</span>
-            <h2>Hesap oluşturma ve güvenlik</h2>
-            <ul>
-              <li>Hesap bilgilerinizi doğru ve güncel tutmalısınız.</li>
-              <li>Şifrenizi ve oturum bilgilerinizi korumak sizin sorumluluğunuzdadır.</li>
-              <li>Başkasının hesabını izinsiz kullanamazsınız.</li>
-              <li>Kötüye kullanım tespit edilirse hesap erişimi kısıtlanabilir.</li>
-            </ul>
-          </section>
-
-          <section class="section-card" id="content">
-            <span class="section-num">04 — Kullanıcı İçerikleri</span>
-            <h2>Kullanıcı içerikleri</h2>
-            <p>Uygulama içinde oyun, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
-            <p>Gönderdiğiniz içeriklerin hukuka uygun, size ait veya kullanma hakkına sahip olduğunuz içerikler olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Scrabble Çözücü'ye gerekli kullanım iznini vermiş olursunuz.</p>
-          </section>
-
-          <section class="section-card" id="moderation">
-            <span class="section-num">05 — Sohbet ve Moderasyon</span>
-            <h2>Sohbet ve moderasyon</h2>
-            <p>Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler yönetici onayına düşer ve uygun bulunursa genel sohbette yayınlanabilir.</p>
-            <p>Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya kural ihlali sebebiyle kaldırılabilir. Gerekli durumlarda kullanıcı hesabı kısıtlanabilir veya banlanabilir.</p>
-          </section>
-
-          <section class="section-card" id="prohibited">
-            <span class="section-num">06 — Yasaklı Kullanım</span>
-            <h2>Yasaklı kullanım</h2>
-            <p>Aşağıdaki davranışlar yasaktır:</p>
-            <ul>
-              <li>Hakaret, tehdit, taciz veya nefret içerikli mesaj göndermek.</li>
-              <li>Kişisel veri, özel bilgi veya başkasına ait gizli içerik paylaşmak.</li>
-              <li>Yasa dışı, yetişkin içerikli, şiddet içeren veya zararlı içerik paylaşmak.</li>
-              <li>Spam, otomatik istek, sistemi yanıltma veya güvenlik açıklarını kullanmak.</li>
-              <li>Telif hakkı veya marka haklarını ihlal eden içerik göndermek.</li>
-              <li>Uygulamanın normal çalışmasını bozacak davranışlarda bulunmak.</li>
-            </ul>
-          </section>
-
-          <section class="section-card" id="ocr">
-            <span class="section-num">07 — Fotoğraf ve OCR Özellikleri</span>
-            <h2>Fotoğraf ve OCR özellikleri</h2>
-            <p>Tahta tarama özelliği, kullanıcının seçtiği görsel üzerinde harf tanıma yapar. Tanıma sonucu her zaman hatasız olmayabilir. Tarama sonrası tahtaya aktarılan harfleri kontrol etmek kullanıcının sorumluluğundadır.</p>
-            <p>Sohbet veya iletişim formu ile gönderilen görseller yönetici denetimine ve bu şartlara tabidir.</p>
-          </section>
-
-          <section class="section-card" id="availability">
-            <span class="section-num">08 — Doğruluk, Erişilebilirlik ve Garanti Sınırı</span>
-            <h2>Doğruluk, erişilebilirlik ve garanti sınırı</h2>
-            <p>Uygulama sonuçları; seçili sözlük, alfabe, desen ve kullanıcı girişlerine göre hesaplanır. Çözüm önerilerinin, kelime anlamlarının veya OCR sonuçlarının her durumda eksiksiz ve hatasız olacağı garanti edilmez.</p>
-            <p>Uygulama zaman zaman bakım, güncelleme, sunucu sorunu veya teknik sebeplerle kesintiye uğrayabilir.</p>
-          </section>
-
-          <section class="section-card" id="deletion">
-            <span class="section-num">09 — Hesap Silme ve Veri Talepleri</span>
-            <h2>Hesap silme ve veri talepleri</h2>
-            <p>Hesabınızı uygulama içinden veya hesap silme bağlantısı üzerinden silebilirsiniz. Silme süreci ve veri işleme detayları Gizlilik Politikasında açıklanır.</p>
-            <div class="contact-box">
-              <strong>Hesap Silme Bağlantısı</strong>
-              <a href="https://scrabblecozucu.com/hesap-sil">scrabblecozucu.com/hesap-sil</a>
-            </div>
-          </section>
-
-          <section class="section-card highlight">
-            <span class="section-num">10 — Şartlarda Değişiklik</span>
-            <h2>Şartlarda değişiklik</h2>
-            <p>Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu sayfada yayınlandığında yürürlüğe girer. Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
-          </section>
-
-          <section class="section-card" id="contact">
-            <span class="section-num">11 — İletişim</span>
-            <h2>İletişim</h2>
-            <p>Destek, geri bildirim, ban itirazı, hesap silme veya veri talepleri için uygulamadaki İletişim sayfasını kullanabilir ya da aşağıdaki e-posta adresinden ulaşabilirsiniz.</p>
-            <div class="contact-box">
-              <strong>E-posta</strong>
-              <a href="mailto:scrabblecozucupro@gmail.com">scrabblecozucupro@gmail.com</a>
-            </div>
-          </section>
-        </main>
-      </div>
-
-      <!-- FOOTER -->
-      <footer>
-        <span class="footer-brand">Scrabble Çözücü</span>
-        <span class="footer-meta">© 2026 — Bilgilendirme amacıyla hazırlanmıştır</span>
-      </footer>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="topbar-icon">🔤</div>
+      <span class="topbar-name">Scrabble Çözücü</span>
     </div>
+    <span class="topbar-doc">ŞARTLAR</span>
+  </div>
 
-    <script>
-      // Scroll spy for TOC
-      const sections = document.querySelectorAll('section[id]');
-      const links = document.querySelectorAll('.toc-list a');
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">Politika Belgesi · Mayıs 2026</p>
+    <h1>Kullanım<br /><span>Şartları</span></h1>
+    <p class="hero-desc">Uygulamayı kullanırken geçerli kurallar, kullanıcı sorumlulukları ve hesap işlemleri.</p>
+    <div class="hero-chips">
+      <span class="chip">Yürürlük: 24 Mayıs 2026</span>
+      <span class="chip"><a href="mailto:scrabblecozucupro@gmail.com">scrabblecozucupro@gmail.com</a></span>
+    </div>
+  </header>
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            links.forEach(l => l.classList.remove('active'));
-            const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
-            if (active) active.classList.add('active');
+  <!-- QUICK NAV -->
+  <nav class="quick-nav" aria-label="Hızlı erişim">
+    <a href="#acceptance"><span class="n">01</span>Kabul</a>
+    <a href="#service"><span class="n">02</span>Hizmet</a>
+    <a href="#account"><span class="n">03</span>Hesap</a>
+    <a href="#content"><span class="n">04</span>İçerikler</a>
+    <a href="#moderation"><span class="n">05</span>Moderasyon</a>
+    <a href="#prohibited"><span class="n">06</span>Yasaklar</a>
+    <a href="#ocr"><span class="n">07</span>Fotoğraf</a>
+    <a href="#availability"><span class="n">08</span>Garanti</a>
+    <a href="#deletion"><span class="n">09</span>Hesap Silme</a>
+    <a href="#contact"><span class="n">10</span>İletişim</a>
+  </nav>
+
+  <!-- SECTIONS -->
+  <div class="content">
+
+    <article class="section-card" id="acceptance">
+      <div class="sec-label">
+        <span class="sec-num">01</span>
+        <span class="sec-label-text">Şartların Kabulü</span>
+      </div>
+      <h2>Şartların kabulü</h2>
+      <p>Scrabble Çözücü uygulamasını kullanarak bu Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş sayılırsınız. Bu şartları kabul etmiyorsanız uygulamayı kullanmamalısınız.</p>
+    </article>
+
+    <article class="section-card" id="service">
+      <div class="sec-label">
+        <span class="sec-num">02</span>
+        <span class="sec-label-text">Hizmetin Amacı</span>
+      </div>
+      <h2>Hizmetin amacı</h2>
+      <p>Scrabble Çözücü; kelime oyunlarında oyun, sözlük, alfabe, desen ve tahta yönetimi üzerinden çözüm önerileri sunan yardımcı bir araçtır. Resmî Scrabble markasıyla veya piyasadaki benzeri uygulamalarla ilişkili değildir.</p>
+      <p>Başka platform, turnuva veya oyunların kurallarına uyma sorumluluğu kullanıcıya aittir.</p>
+    </article>
+
+    <article class="section-card" id="account">
+      <div class="sec-label">
+        <span class="sec-num">03</span>
+        <span class="sec-label-text">Hesap Oluşturma ve Güvenlik</span>
+      </div>
+      <h2>Hesap oluşturma ve güvenlik</h2>
+      <ul>
+        <li>Hesap bilgilerinizi doğru ve güncel tutmalısınız.</li>
+        <li>Şifrenizi ve oturum bilgilerinizi korumak sizin sorumluluğunuzdadır.</li>
+        <li>Başkasının hesabını izinsiz kullanamazsınız.</li>
+        <li>Kötüye kullanım tespit edilirse hesap erişimi kısıtlanabilir.</li>
+      </ul>
+    </article>
+
+    <article class="section-card" id="content">
+      <div class="sec-label">
+        <span class="sec-num">04</span>
+        <span class="sec-label-text">Kullanıcı İçerikleri</span>
+      </div>
+      <h2>Kullanıcı içerikleri</h2>
+      <p>Uygulama içinde oyun, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
+      <p>Gönderdiğiniz içeriklerin hukuka uygun ve size ait olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Scrabble Çözücü'ye gerekli kullanım iznini vermiş olursunuz.</p>
+    </article>
+
+    <article class="section-card" id="moderation">
+      <div class="sec-label">
+        <span class="sec-num">05</span>
+        <span class="sec-label-text">Sohbet ve Moderasyon</span>
+      </div>
+      <h2>Sohbet ve moderasyon</h2>
+      <p>Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler yönetici onayına düşer ve uygun bulunursa genel sohbette yayınlanabilir.</p>
+      <p>Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya kural ihlali sebebiyle kaldırılabilir. Gerekli durumlarda kullanıcı hesabı kısıtlanabilir veya banlanabilir.</p>
+    </article>
+
+    <article class="section-card" id="prohibited">
+      <div class="sec-label">
+        <span class="sec-num">06</span>
+        <span class="sec-label-text">Yasaklı Kullanım</span>
+      </div>
+      <h2>Yasaklı kullanım</h2>
+      <p>Aşağıdaki davranışlar yasaktır:</p>
+      <ul class="danger-list">
+        <li>Hakaret, tehdit, taciz veya nefret içerikli mesaj göndermek.</li>
+        <li>Kişisel veri, özel bilgi veya başkasına ait gizli içerik paylaşmak.</li>
+        <li>Yasa dışı, yetişkin içerikli, şiddet içeren veya zararlı içerik paylaşmak.</li>
+        <li>Spam, otomatik istek, sistemi yanıltma veya güvenlik açıklarını kullanmak.</li>
+        <li>Telif hakkı veya marka haklarını ihlal eden içerik göndermek.</li>
+        <li>Uygulamanın normal çalışmasını bozacak davranışlarda bulunmak.</li>
+      </ul>
+    </article>
+
+    <article class="section-card" id="ocr">
+      <div class="sec-label">
+        <span class="sec-num">07</span>
+        <span class="sec-label-text">Fotoğraf ve OCR</span>
+      </div>
+      <h2>Fotoğraf ve OCR özellikleri</h2>
+      <p>Tahta tarama özelliği, kullanıcının seçtiği görsel üzerinde harf tanıma yapar. Tanıma sonucu her zaman hatasız olmayabilir. Tarama sonrası tahtaya aktarılan harfleri kontrol etmek kullanıcının sorumluluğundadır.</p>
+      <p>Sohbet veya iletişim formu ile gönderilen görseller yönetici denetimine ve bu şartlara tabidir.</p>
+    </article>
+
+    <article class="section-card" id="availability">
+      <div class="sec-label">
+        <span class="sec-num">08</span>
+        <span class="sec-label-text">Doğruluk ve Garanti Sınırı</span>
+      </div>
+      <h2>Doğruluk, erişilebilirlik ve garanti sınırı</h2>
+      <p>Uygulama sonuçları; seçili sözlük, alfabe, desen ve kullanıcı girişlerine göre hesaplanır. Çözüm önerilerinin, kelime anlamlarının veya OCR sonuçlarının her durumda eksiksiz ve hatasız olacağı garanti edilmez.</p>
+      <p>Uygulama zaman zaman bakım, güncelleme veya teknik sebeplerle kesintiye uğrayabilir.</p>
+    </article>
+
+    <article class="section-card" id="deletion">
+      <div class="sec-label">
+        <span class="sec-num">09</span>
+        <span class="sec-label-text">Hesap Silme ve Veri Talepleri</span>
+      </div>
+      <h2>Hesap silme ve veri talepleri</h2>
+      <p>Hesabınızı uygulama içinden veya hesap silme bağlantısı üzerinden silebilirsiniz. Silme süreci ve veri işleme detayları Gizlilik Politikasında açıklanır.</p>
+      <a class="contact-box" href="https://scrabblecozucu.com/hesap-sil">
+        <div class="contact-box-inner">
+          <strong>Hesap Silme</strong>
+          <span>scrabblecozucu.com/hesap-sil</span>
+        </div>
+        <span class="contact-box-arrow">→</span>
+      </a>
+    </article>
+
+    <article class="section-card" id="changes">
+      <div class="sec-label">
+        <span class="sec-num">10</span>
+        <span class="sec-label-text">Şartlarda Değişiklik</span>
+      </div>
+      <h2>Şartlarda değişiklik</h2>
+      <div class="notice-box">
+        <span class="notice-label">⚠ Bilgilendirme</span>
+        <p>Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu sayfada yayınlandığında yürürlüğe girer. Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
+      </div>
+    </article>
+
+    <article class="section-card" id="contact">
+      <div class="sec-label">
+        <span class="sec-num">11</span>
+        <span class="sec-label-text">İletişim</span>
+      </div>
+      <h2>İletişim</h2>
+      <p>Destek, geri bildirim, ban itirazı, hesap silme veya veri talepleri için uygulamadaki İletişim sayfasını kullanabilir ya da e-posta gönderebilirsiniz.</p>
+      <a class="contact-box" href="mailto:scrabblecozucupro@gmail.com">
+        <div class="contact-box-inner">
+          <strong>E-posta</strong>
+          <span>scrabblecozucupro@gmail.com</span>
+        </div>
+        <span class="contact-box-arrow">→</span>
+      </a>
+    </article>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Scrabble Çözücü</span>
+    <span class="footer-meta">© 2026 · Bilgilendirme amacıyla hazırlanmıştır</span>
+  </footer>
+
+  <script>
+    // Quick-nav scroll spy
+    // Not: Aktif menü öğesini görünür yapmak için scrollIntoView kullanmıyoruz.
+    // scrollIntoView, yatay menüyü görünür kılmaya çalışırken ana sayfayı da dikeyde
+    // yukarı taşıyabildiği için mobil tarayıcılarda zıplama oluşturur.
+    const quickNav = document.querySelector('.quick-nav');
+    const navLinks = document.querySelectorAll('.quick-nav a');
+
+    const centerActiveNavLink = (link) => {
+      if (!quickNav || !link) return;
+
+      const targetLeft = link.offsetLeft - (quickNav.clientWidth - link.offsetWidth) / 2;
+      quickNav.scrollTo({
+        left: Math.max(0, targetLeft),
+        behavior: 'smooth'
+      });
+    };
+
+    const spyObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const a = document.querySelector(`.quick-nav a[href="#${e.target.id}"]`);
+          if (a) {
+            a.classList.add('active');
+            centerActiveNavLink(a);
           }
-        });
-      }, { rootMargin: '-20% 0px -70% 0px' });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
 
-      sections.forEach(s => observer.observe(s));
-    </script>
-  </body>
+    document.querySelectorAll('article[id]').forEach(c => spyObs.observe(c));
+  </script>
+</body>
 </html>
