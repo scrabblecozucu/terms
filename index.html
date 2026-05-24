@@ -4,274 +4,426 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Scrabble Çözücü | Kullanım Şartları</title>
-    <meta
-      name="description"
-      content="Scrabble Çözücü mobil uygulaması kullanım şartları."
-    />
+    <meta name="description" content="Scrabble Çözücü mobil uygulaması kullanım şartları." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
       :root {
-        color-scheme: light;
-        --bg: #f7f8fb;
-        --surface: #ffffff;
-        --soft: #eff6f8;
-        --text: #182026;
-        --muted: #5a6670;
-        --primary: #0f766e;
-        --primary-dark: #115e59;
-        --accent: #2563eb;
-        --warning: #f59e0b;
-        --border: #dce5ea;
-        --shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
+        --bg: #f4f1eb;
+        --surface: #faf8f4;
+        --surface-2: #eeeae0;
+        --text: #1a1714;
+        --text-2: #4a4540;
+        --muted: #8a8078;
+        --primary: #1a5c4a;
+        --primary-light: #2a7a62;
+        --accent: #c8873a;
+        --accent-light: #e8a855;
+        --border: rgba(26, 23, 20, 0.1);
+        --border-strong: rgba(26, 23, 20, 0.18);
+        --ink: #1a1714;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html { scroll-behavior: smooth; }
 
       body {
-        margin: 0;
-        font-family:
-          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.7;
         color: var(--text);
-        line-height: 1.65;
-        background:
-          radial-gradient(circle at 15% 4%, rgba(15, 118, 110, 0.14), transparent 28rem),
-          radial-gradient(circle at 90% 0%, rgba(37, 99, 235, 0.13), transparent 22rem),
-          var(--bg);
+        background-color: var(--bg);
+        background-image:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='1' cy='1' r='1' fill='%231a1714' fill-opacity='0.04'/%3E%3C/svg%3E");
+        min-height: 100vh;
       }
 
-      a {
-        color: var(--primary-dark);
-        font-weight: 750;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .page {
-        width: min(980px, calc(100% - 32px));
+      .wrapper {
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 42px 0 56px;
+        padding: 0 24px 80px;
       }
 
+      /* ── HERO ── */
       .hero {
-        padding: 34px;
-        border: 1px solid rgba(15, 118, 110, 0.18);
-        border-radius: 28px;
-        background: linear-gradient(135deg, #ffffff 0%, #eefaf7 100%);
-        box-shadow: var(--shadow);
+        padding: 64px 0 48px;
+        border-bottom: 1px solid var(--border-strong);
+        animation: fadeUp 0.7s ease both;
       }
 
-      .eyebrow {
+      .brand-label {
         display: inline-flex;
-        margin-bottom: 14px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(15, 118, 110, 0.1);
-        color: var(--primary-dark);
-        font-size: 13px;
-        font-weight: 850;
+        align-items: center;
+        gap: 8px;
+        font-family: 'DM Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--primary);
+        background: rgba(26, 92, 74, 0.08);
+        border: 1px solid rgba(26, 92, 74, 0.2);
+        padding: 6px 14px;
+        border-radius: 4px;
+        margin-bottom: 28px;
+      }
+
+      .brand-label::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--primary);
       }
 
       h1 {
-        margin: 0;
-        font-size: clamp(34px, 6vw, 58px);
-        line-height: 1.03;
-        letter-spacing: 0;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(44px, 7vw, 80px);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin-bottom: 24px;
       }
 
-      .lead {
-        max-width: 760px;
-        margin: 18px 0 0;
-        color: var(--muted);
-        font-size: 18px;
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
       }
 
-      .meta {
+      .hero-desc {
+        max-width: 600px;
+        font-size: 17px;
+        font-weight: 300;
+        color: var(--text-2);
+        line-height: 1.65;
+        margin-bottom: 28px;
+      }
+
+      .meta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 22px;
+        gap: 8px;
+        align-items: center;
       }
 
-      .pill {
-        padding: 8px 11px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.74);
+      .chip {
+        font-family: 'DM Mono', monospace;
+        font-size: 11.5px;
         color: var(--muted);
-        font-size: 13px;
-        font-weight: 700;
+        background: var(--surface);
+        border: 1px solid var(--border-strong);
+        padding: 5px 12px;
+        border-radius: 3px;
       }
 
-      .layout {
+      .chip a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      /* ── BODY GRID ── */
+      .body-grid {
         display: grid;
-        grid-template-columns: 250px 1fr;
-        gap: 22px;
-        margin-top: 24px;
+        grid-template-columns: 220px 1fr;
+        gap: 40px;
+        margin-top: 48px;
       }
 
-      nav {
+      /* ── TOC ── */
+      .toc {
         position: sticky;
-        top: 18px;
+        top: 32px;
         align-self: start;
-        padding: 18px;
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.82);
-        backdrop-filter: blur(10px);
       }
 
-      nav strong {
-        display: block;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      nav a {
-        display: block;
-        padding: 7px 0;
+      .toc-label {
+        font-family: 'DM Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
         color: var(--muted);
-        font-size: 14px;
-        font-weight: 650;
+        margin-bottom: 16px;
+        display: block;
       }
 
-      main {
-        display: grid;
-        gap: 16px;
+      .toc-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
       }
 
-      section {
-        padding: 24px;
+      .toc-list a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 7px 10px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 13.5px;
+        font-weight: 400;
+        border-radius: 4px;
+        transition: color 0.2s, background 0.2s;
+        border-left: 2px solid transparent;
+      }
+
+      .toc-list a:hover,
+      .toc-list a.active {
+        color: var(--accent);
+        background: rgba(200, 135, 58, 0.08);
+        border-left-color: var(--accent);
+      }
+
+      .toc-list .num {
+        font-family: 'DM Mono', monospace;
+        font-size: 10px;
+        color: var(--primary);
+        min-width: 16px;
+      }
+
+      /* ── SECTIONS ── */
+      .sections {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .section-card {
+        background: var(--surface);
         border: 1px solid var(--border);
-        border-radius: 22px;
-        background: rgba(255, 255, 255, 0.92);
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        border-radius: 8px;
+        padding: 32px 36px;
+        transition: border-color 0.2s;
+        animation: fadeUp 0.6s ease both;
+      }
+
+      .section-card:hover {
+        border-color: var(--border-strong);
+      }
+
+      .section-card.highlight {
+        background: #fdf7e8;
+        border-color: rgba(200, 135, 58, 0.3);
+      }
+
+      .section-num {
+        font-family: 'DM Mono', monospace;
+        font-size: 11px;
+        color: var(--primary);
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        display: block;
       }
 
       h2 {
-        margin: 0 0 12px;
-        font-size: 24px;
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 16px;
         line-height: 1.2;
       }
 
       p {
-        margin: 0 0 12px;
-        color: var(--muted);
+        color: var(--text-2);
+        font-size: 15px;
+        margin-bottom: 12px;
+        font-weight: 300;
       }
+
+      p:last-child { margin-bottom: 0; }
 
       ul {
-        margin: 8px 0 0;
-        padding-left: 22px;
-        color: var(--muted);
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 4px;
       }
 
-      li + li {
-        margin-top: 7px;
+      li {
+        color: var(--text-2);
+        font-size: 15px;
+        font-weight: 300;
+        padding-left: 20px;
+        position: relative;
       }
 
-      .notice {
-        border-color: rgba(245, 158, 11, 0.38);
-        background: #fff8e7;
-      }
-
-      .contact {
-        padding: 20px;
-        border-radius: 18px;
-        background: var(--soft);
-      }
-
-      footer {
-        margin-top: 28px;
-        color: var(--muted);
+      li::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: var(--accent);
         font-size: 13px;
-        text-align: center;
       }
 
-      @media (max-width: 780px) {
-        .page {
-          width: min(100% - 24px, 980px);
-          padding-top: 18px;
-        }
+      /* ── CONTACT BOX ── */
+      .contact-box {
+        margin-top: 20px;
+        padding: 18px 22px;
+        background: var(--surface-2);
+        border-radius: 6px;
+        border-left: 3px solid var(--accent);
+      }
 
-        .hero {
-          padding: 24px;
-          border-radius: 22px;
-        }
+      .contact-box strong {
+        display: block;
+        font-family: 'DM Mono', monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
 
-        .layout {
+      .contact-box a {
+        color: var(--primary);
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .contact-box a:hover { text-decoration: underline; }
+
+      /* ── FOOTER ── */
+      footer {
+        margin-top: 60px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .footer-brand {
+        font-family: 'Playfair Display', serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .footer-meta {
+        font-family: 'DM Mono', monospace;
+        font-size: 11px;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .section-card:nth-child(1)  { animation-delay: 0.05s; }
+      .section-card:nth-child(2)  { animation-delay: 0.10s; }
+      .section-card:nth-child(3)  { animation-delay: 0.15s; }
+      .section-card:nth-child(4)  { animation-delay: 0.20s; }
+      .section-card:nth-child(5)  { animation-delay: 0.25s; }
+      .section-card:nth-child(6)  { animation-delay: 0.30s; }
+      .section-card:nth-child(7)  { animation-delay: 0.35s; }
+      .section-card:nth-child(8)  { animation-delay: 0.40s; }
+      .section-card:nth-child(9)  { animation-delay: 0.45s; }
+      .section-card:nth-child(10) { animation-delay: 0.50s; }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 760px) {
+        .body-grid {
           grid-template-columns: 1fr;
+          gap: 24px;
+          margin-top: 32px;
         }
 
-        nav {
-          position: static;
+        .toc { position: static; }
+
+        .toc-list {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 6px;
         }
+
+        .toc-list a {
+          border-left: none;
+          border-bottom: 2px solid transparent;
+          padding: 5px 10px;
+          font-size: 12.5px;
+        }
+
+        .toc-list a:hover,
+        .toc-list a.active {
+          border-left-color: transparent;
+          border-bottom-color: var(--accent);
+        }
+
+        .section-card { padding: 24px 22px; }
+
+        h1 { font-size: 40px; }
+
+        footer { flex-direction: column; align-items: flex-start; }
       }
     </style>
   </head>
   <body>
-    <div class="page">
+    <div class="wrapper">
+      <!-- HERO -->
       <header class="hero">
-        <span class="eyebrow">Scrabble Çözücü</span>
-        <h1>Kullanım Şartları</h1>
-        <p class="lead">
+        <div class="brand-label">Scrabble Çözücü</div>
+        <h1>Kullanım<br /><em>Şartları</em></h1>
+        <p class="hero-desc">
           Bu şartlar, Scrabble Çözücü mobil uygulamasını kullanırken geçerli
           kuralları, kullanıcı sorumluluklarını, içerik politikalarını ve hesap
           işlemlerini açıklar.
         </p>
-        <div class="meta">
-          <span class="pill">Yürürlük tarihi: 24 Mayıs 2026</span>
-          <span class="pill">Destek: scrabblecozucupro@gmail.com</span>
+        <div class="meta-row">
+          <span class="chip">Yürürlük: 24 Mayıs 2026</span>
+          <span class="chip"><a href="mailto:scrabblecozucupro@gmail.com">scrabblecozucupro@gmail.com</a></span>
         </div>
       </header>
 
-      <div class="layout">
-        <nav aria-label="Sayfa içeriği">
-          <strong>İçindekiler</strong>
-          <a href="#acceptance">Kabul</a>
-          <a href="#service">Hizmetin amacı</a>
-          <a href="#account">Hesap</a>
-          <a href="#content">Kullanıcı içerikleri</a>
-          <a href="#moderation">Moderasyon</a>
-          <a href="#prohibited">Yasaklı kullanım</a>
-          <a href="#ocr">Fotoğraf ve OCR</a>
-          <a href="#availability">Doğruluk ve erişilebilirlik</a>
-          <a href="#deletion">Hesap silme</a>
-          <a href="#contact">İletişim</a>
+      <!-- BODY -->
+      <div class="body-grid">
+        <!-- TOC -->
+        <nav class="toc" aria-label="İçindekiler">
+          <span class="toc-label">İçindekiler</span>
+          <ul class="toc-list">
+            <li><a href="#acceptance"><span class="num">01</span>Kabul</a></li>
+            <li><a href="#service"><span class="num">02</span>Hizmetin amacı</a></li>
+            <li><a href="#account"><span class="num">03</span>Hesap</a></li>
+            <li><a href="#content"><span class="num">04</span>Kullanıcı içerikleri</a></li>
+            <li><a href="#moderation"><span class="num">05</span>Moderasyon</a></li>
+            <li><a href="#prohibited"><span class="num">06</span>Yasaklı kullanım</a></li>
+            <li><a href="#ocr"><span class="num">07</span>Fotoğraf ve OCR</a></li>
+            <li><a href="#availability"><span class="num">08</span>Doğruluk ve erişilebilirlik</a></li>
+            <li><a href="#deletion"><span class="num">09</span>Hesap silme</a></li>
+            <li><a href="#contact"><span class="num">10</span>İletişim</a></li>
+          </ul>
         </nav>
 
-        <main>
-          <section id="acceptance">
-            <h2>1. Şartların kabulü</h2>
-            <p>
-              Scrabble Çözücü uygulamasını kullanarak bu Kullanım Şartlarını ve
-              Gizlilik Politikasını kabul etmiş sayılırsınız. Bu şartları kabul
-              etmiyorsanız uygulamayı kullanmamalısınız.
-            </p>
+        <!-- SECTIONS -->
+        <main class="sections">
+          <section class="section-card" id="acceptance">
+            <span class="section-num">01 — Şartların Kabulü</span>
+            <h2>Şartların kabulü</h2>
+            <p>Scrabble Çözücü uygulamasını kullanarak bu Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş sayılırsınız. Bu şartları kabul etmiyorsanız uygulamayı kullanmamalısınız.</p>
           </section>
 
-          <section id="service">
-            <h2>2. Hizmetin amacı</h2>
-            <p>
-              Scrabble Çözücü; kelime oyunlarında oyun, sözlük, alfabe, desen ve
-              tahta yönetimi üzerinden çözüm önerileri sunan yardımcı bir
-              araçtır. Uygulama resmî Scrabble markasıyla veya marka sahipleriyle bağlantılı olmadığı gibi
-              piyasadaki hiçbir mudail, benzeri uygulamalarla da ilişkili değildir. Evrensel bir yardımcı araç
-              olarak tasarlanmış olup belirli bir oyun, platform veya sözlükle sınırlı değildir.
-            </p>
-            <p>
-              Uygulama; kullanıcıların kelime üretme, hamle değerlendirme,
-              sözlük kontrolü ve tahta yönetimi süreçlerini kolaylaştırmayı
-              amaçlar. Başka platform, turnuva veya oyunların kurallarına uyma
-              sorumluluğu kullanıcıya aittir.
-            </p>
+          <section class="section-card" id="service">
+            <span class="section-num">02 — Hizmetin Amacı</span>
+            <h2>Hizmetin amacı</h2>
+            <p>Scrabble Çözücü; kelime oyunlarında oyun, sözlük, alfabe, desen ve tahta yönetimi üzerinden çözüm önerileri sunan yardımcı bir araçtır. Uygulama resmî Scrabble markasıyla veya marka sahipleriyle bağlantılı olmadığı gibi piyasadaki hiçbir mudail, benzeri uygulamalarla da ilişkili değildir. Evrensel bir yardımcı araç olarak tasarlanmış olup belirli bir oyun, platform veya sözlükle sınırlı değildir.</p>
+            <p>Uygulama; kullanıcıların kelime üretme, hamle değerlendirme, sözlük kontrolü ve tahta yönetimi süreçlerini kolaylaştırmayı amaçlar. Başka platform, turnuva veya oyunların kurallarına uyma sorumluluğu kullanıcıya aittir.</p>
           </section>
 
-          <section id="account">
-            <h2>3. Hesap oluşturma ve güvenlik</h2>
+          <section class="section-card" id="account">
+            <span class="section-num">03 — Hesap Oluşturma ve Güvenlik</span>
+            <h2>Hesap oluşturma ve güvenlik</h2>
             <ul>
               <li>Hesap bilgilerinizi doğru ve güncel tutmalısınız.</li>
               <li>Şifrenizi ve oturum bilgilerinizi korumak sizin sorumluluğunuzdadır.</li>
@@ -280,37 +432,23 @@
             </ul>
           </section>
 
-          <section id="content">
-            <h2>4. Kullanıcı içerikleri</h2>
-            <p>
-              Uygulama içinde oyun, sözlük, alfabe, desen, tahta, sohbet mesajı,
-              görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.
-            </p>
-            <p>
-              Gönderdiğiniz içeriklerin hukuka uygun, size ait veya kullanma
-              hakkına sahip olduğunuz içerikler olması gerekir. İçeriklerinizin
-              uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik
-              olarak işlenmesi için Scrabble Çözücü'ye gerekli kullanım iznini
-              vermiş olursunuz.
-            </p>
+          <section class="section-card" id="content">
+            <span class="section-num">04 — Kullanıcı İçerikleri</span>
+            <h2>Kullanıcı içerikleri</h2>
+            <p>Uygulama içinde oyun, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
+            <p>Gönderdiğiniz içeriklerin hukuka uygun, size ait veya kullanma hakkına sahip olduğunuz içerikler olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Scrabble Çözücü'ye gerekli kullanım iznini vermiş olursunuz.</p>
           </section>
 
-          <section id="moderation">
-            <h2>5. Sohbet ve moderasyon</h2>
-            <p>
-              Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler
-              yönetici onayına düşer ve uygun bulunursa genel sohbette
-              yayınlanabilir.
-            </p>
-            <p>
-              Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya
-              kural ihlali sebebiyle kaldırılabilir. Gerekli durumlarda kullanıcı
-              hesabı kısıtlanabilir veya banlanabilir.
-            </p>
+          <section class="section-card" id="moderation">
+            <span class="section-num">05 — Sohbet ve Moderasyon</span>
+            <h2>Sohbet ve moderasyon</h2>
+            <p>Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler yönetici onayına düşer ve uygun bulunursa genel sohbette yayınlanabilir.</p>
+            <p>Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya kural ihlali sebebiyle kaldırılabilir. Gerekli durumlarda kullanıcı hesabı kısıtlanabilir veya banlanabilir.</p>
           </section>
 
-          <section id="prohibited">
-            <h2>6. Yasaklı kullanım</h2>
+          <section class="section-card" id="prohibited">
+            <span class="section-num">06 — Yasaklı Kullanım</span>
+            <h2>Yasaklı kullanım</h2>
             <p>Aşağıdaki davranışlar yasaktır:</p>
             <ul>
               <li>Hakaret, tehdit, taciz veya nefret içerikli mesaj göndermek.</li>
@@ -322,78 +460,71 @@
             </ul>
           </section>
 
-          <section id="ocr">
-            <h2>7. Fotoğraf ve OCR özellikleri</h2>
-            <p>
-              Tahta tarama özelliği, kullanıcının seçtiği görsel üzerinde harf
-              tanıma yapar. Tanıma sonucu her zaman hatasız olmayabilir. Tarama
-              sonrası tahtaya aktarılan harfleri kontrol etmek kullanıcının
-              sorumluluğundadır.
-            </p>
-            <p>
-              Sohbet veya iletişim formu ile gönderilen görseller yönetici
-              denetimine ve bu şartlara tabidir.
-            </p>
+          <section class="section-card" id="ocr">
+            <span class="section-num">07 — Fotoğraf ve OCR Özellikleri</span>
+            <h2>Fotoğraf ve OCR özellikleri</h2>
+            <p>Tahta tarama özelliği, kullanıcının seçtiği görsel üzerinde harf tanıma yapar. Tanıma sonucu her zaman hatasız olmayabilir. Tarama sonrası tahtaya aktarılan harfleri kontrol etmek kullanıcının sorumluluğundadır.</p>
+            <p>Sohbet veya iletişim formu ile gönderilen görseller yönetici denetimine ve bu şartlara tabidir.</p>
           </section>
 
-          <section id="availability">
-            <h2>8. Doğruluk, erişilebilirlik ve garanti sınırı</h2>
-            <p>
-              Uygulama sonuçları; seçili sözlük, alfabe, desen ve kullanıcı
-              girişlerine göre hesaplanır. Çözüm önerilerinin, kelime
-              anlamlarının veya OCR sonuçlarının her durumda eksiksiz ve hatasız
-              olacağı garanti edilmez.
-            </p>
-            <p>
-              Uygulama zaman zaman bakım, güncelleme, sunucu sorunu veya teknik
-              sebeplerle kesintiye uğrayabilir.
-            </p>
+          <section class="section-card" id="availability">
+            <span class="section-num">08 — Doğruluk, Erişilebilirlik ve Garanti Sınırı</span>
+            <h2>Doğruluk, erişilebilirlik ve garanti sınırı</h2>
+            <p>Uygulama sonuçları; seçili sözlük, alfabe, desen ve kullanıcı girişlerine göre hesaplanır. Çözüm önerilerinin, kelime anlamlarının veya OCR sonuçlarının her durumda eksiksiz ve hatasız olacağı garanti edilmez.</p>
+            <p>Uygulama zaman zaman bakım, güncelleme, sunucu sorunu veya teknik sebeplerle kesintiye uğrayabilir.</p>
           </section>
 
-          <section id="deletion">
-            <h2>9. Hesap silme ve veri talepleri</h2>
-            <p>
-              Hesabınızı uygulama içinden veya hesap silme bağlantısı
-              üzerinden silebilirsiniz. Silme süreci ve veri işleme
-              detayları Gizlilik Politikasında açıklanır.
-            </p>
-            <div class="contact">
-              <strong>Hesap silme bağlantısı:</strong><br />
-              <a href="https://scrabblecozucu.com/hesap-sil">
-                https://scrabblecozucu.com/hesap-sil
-              </a>
+          <section class="section-card" id="deletion">
+            <span class="section-num">09 — Hesap Silme ve Veri Talepleri</span>
+            <h2>Hesap silme ve veri talepleri</h2>
+            <p>Hesabınızı uygulama içinden veya hesap silme bağlantısı üzerinden silebilirsiniz. Silme süreci ve veri işleme detayları Gizlilik Politikasında açıklanır.</p>
+            <div class="contact-box">
+              <strong>Hesap Silme Bağlantısı</strong>
+              <a href="https://scrabblecozucu.com/hesap-sil">scrabblecozucu.com/hesap-sil</a>
             </div>
           </section>
 
-          <section class="notice">
-            <h2>10. Şartlarda değişiklik</h2>
-            <p>
-              Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu
-              sayfada yayınlandığında yürürlüğe girer. Uygulamayı kullanmaya
-              devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.
-            </p>
+          <section class="section-card highlight">
+            <span class="section-num">10 — Şartlarda Değişiklik</span>
+            <h2>Şartlarda değişiklik</h2>
+            <p>Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu sayfada yayınlandığında yürürlüğe girer. Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
           </section>
 
-          <section id="contact">
-            <h2>11. İletişim</h2>
-            <p>
-              Destek, geri bildirim, ban itirazı, hesap silme veya veri
-              talepleri için uygulamadaki İletişim sayfasını kullanabilir ya da
-              aşağıdaki e-posta adresinden ulaşabilirsiniz.
-            </p>
-            <div class="contact">
-              <strong>E-posta:</strong>
-              <a href="mailto:scrabblecozucupro@gmail.com">
-                scrabblecozucupro@gmail.com
-              </a>
+          <section class="section-card" id="contact">
+            <span class="section-num">11 — İletişim</span>
+            <h2>İletişim</h2>
+            <p>Destek, geri bildirim, ban itirazı, hesap silme veya veri talepleri için uygulamadaki İletişim sayfasını kullanabilir ya da aşağıdaki e-posta adresinden ulaşabilirsiniz.</p>
+            <div class="contact-box">
+              <strong>E-posta</strong>
+              <a href="mailto:scrabblecozucupro@gmail.com">scrabblecozucupro@gmail.com</a>
             </div>
           </section>
         </main>
       </div>
 
+      <!-- FOOTER -->
       <footer>
-        © 2026 Scrabble Çözücü. Bu sayfa bilgilendirme amacıyla hazırlanmıştır.
+        <span class="footer-brand">Scrabble Çözücü</span>
+        <span class="footer-meta">© 2026 — Bilgilendirme amacıyla hazırlanmıştır</span>
       </footer>
     </div>
+
+    <script>
+      // Scroll spy for TOC
+      const sections = document.querySelectorAll('section[id]');
+      const links = document.querySelectorAll('.toc-list a');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+
+      sections.forEach(s => observer.observe(s));
+    </script>
   </body>
 </html>
