@@ -155,6 +155,9 @@
 
     /* ── QUICK NAV ── */
     .quick-nav {
+      position: sticky;
+      top: calc(58px + env(safe-area-inset-top, 0px));
+      z-index: 90;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
@@ -162,6 +165,9 @@
       padding: 0 20px;
       display: flex;
       gap: 4px;
+      background: rgba(15,15,16,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
     .quick-nav::-webkit-scrollbar { display: none; }
@@ -387,14 +393,15 @@
   <nav class="quick-nav" aria-label="Hızlı erişim">
     <a href="#acceptance"><span class="n">01</span>Kabul</a>
     <a href="#service"><span class="n">02</span>Hizmet</a>
-    <a href="#account"><span class="n">03</span>Hesap</a>
-    <a href="#content"><span class="n">04</span>İçerikler</a>
-    <a href="#moderation"><span class="n">05</span>Moderasyon</a>
-    <a href="#prohibited"><span class="n">06</span>Yasaklar</a>
-    <a href="#ocr"><span class="n">07</span>Fotoğraf</a>
-    <a href="#availability"><span class="n">08</span>Garanti</a>
-    <a href="#deletion"><span class="n">09</span>Hesap Silme</a>
-    <a href="#contact"><span class="n">10</span>İletişim</a>
+    <a href="#third-party"><span class="n">03</span>Üçüncü Taraflar</a>
+    <a href="#account"><span class="n">04</span>Hesap</a>
+    <a href="#content"><span class="n">05</span>İçerikler</a>
+    <a href="#moderation"><span class="n">06</span>Moderasyon</a>
+    <a href="#prohibited"><span class="n">07</span>Yasaklar</a>
+    <a href="#ocr"><span class="n">08</span>Fotoğraf</a>
+    <a href="#availability"><span class="n">09</span>Garanti</a>
+    <a href="#deletion"><span class="n">10</span>Hesap Silme</a>
+    <a href="#contact"><span class="n">11</span>İletişim</a>
   </nav>
 
   <!-- SECTIONS -->
@@ -416,13 +423,23 @@
         <span class="sec-label-text">Hizmetin Amacı</span>
       </div>
       <h2>Hizmetin amacı</h2>
-      <p>Kelime Asistanı; kelime oyunlarında oyun, sözlük, alfabe, desen ve tahta yönetimi üzerinden çözüm önerileri sunan yardımcı bir araçtır. Resmî Scrabble markasıyla veya piyasadaki benzeri uygulamalarla ilişkili değildir.</p>
-      <p>Başka platform, turnuva veya oyunların kurallarına uyma sorumluluğu kullanıcıya aittir.</p>
+      <p>Kelime Asistanı; kullanıcı tarafından oluşturulan veya yüklenen veriler üzerinde analiz gerçekleştiren bağımsız bir yazılım aracıdır. Harf, kelime, sözlük, alfabe, desen ve tahta verileri üzerinden kullanıcıya yardımcı analiz sonuçları sunar.</p>
+      <p>Uygulama herhangi bir üçüncü taraf oyun, marka, hizmet veya platform tarafından desteklenmemekte, onaylanmamakta ve bunlarla ilişkili değildir.</p>
+    </article>
+
+    <article class="section-card" id="third-party">
+      <div class="sec-label">
+        <span class="sec-num">03</span>
+        <span class="sec-label-text">Üçüncü Taraf Hizmetler</span>
+      </div>
+      <h2>Üçüncü taraf hizmetler ve kullanıcı sorumluluğu</h2>
+      <p>Kelime Asistanı bağımsız bir yazılım ürünüdür. Üçüncü taraf oyunlar, uygulamalar, hesaplar, platformlar veya hizmetlerle teknik entegrasyon kurmaz ve bu hizmetlerdeki hesaplara erişmez.</p>
+      <p>Kullanıcının üçüncü taraf hizmetleri nasıl kullandığı kendi sorumluluğundadır. Başka hizmetlerin kullanım koşullarına, kurallarına veya politikalarına uyma yükümlülüğü kullanıcıya aittir; uygulama bu uyumu denetlemez.</p>
     </article>
 
     <article class="section-card" id="account">
       <div class="sec-label">
-        <span class="sec-num">03</span>
+        <span class="sec-num">04</span>
         <span class="sec-label-text">Hesap Oluşturma ve Güvenlik</span>
       </div>
       <h2>Hesap oluşturma ve güvenlik</h2>
@@ -438,18 +455,18 @@
 
     <article class="section-card" id="content">
       <div class="sec-label">
-        <span class="sec-num">04</span>
+        <span class="sec-num">05</span>
         <span class="sec-label-text">Kullanıcı İçerikleri</span>
       </div>
       <h2>Kullanıcı içerikleri</h2>
-      <p>Uygulama içinde oyun, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
+      <p>Uygulama içinde çalışma alanı, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
       <p>Misafir kullanıcılar sohbet içinde metin mesajı gönderebilir; ancak resimli sohbet mesajı gönderemez. Hesabında e-posta bulunmayan kullanıcıların iletişim formunda geçerli e-posta adresi girmesi gerekir.</p>
-      <p>Gönderdiğiniz içeriklerin hukuka uygun ve size ait olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Kelime Asistanı'na gerekli kullanım iznini vermiş olursunuz.</p>
+      <p>Gönderdiğiniz veya yüklediğiniz içeriklerin hukuka uygun, size ait veya kullanım hakkına sahip olduğunuz içerikler olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Kelime Asistanı'na gerekli kullanım iznini vermiş olursunuz.</p>
     </article>
 
     <article class="section-card" id="moderation">
       <div class="sec-label">
-        <span class="sec-num">05</span>
+        <span class="sec-num">06</span>
         <span class="sec-label-text">Sohbet ve Moderasyon</span>
       </div>
       <h2>Sohbet ve moderasyon</h2>
@@ -459,7 +476,7 @@
 
     <article class="section-card" id="prohibited">
       <div class="sec-label">
-        <span class="sec-num">06</span>
+        <span class="sec-num">07</span>
         <span class="sec-label-text">Yasaklı Kullanım</span>
       </div>
       <h2>Yasaklı kullanım</h2>
@@ -470,33 +487,35 @@
         <li>Yasa dışı, yetişkin içerikli, şiddet içeren veya zararlı içerik paylaşmak.</li>
         <li>Spam, otomatik istek, sistemi yanıltma veya güvenlik açıklarını kullanmak.</li>
         <li>Telif hakkı veya marka haklarını ihlal eden içerik göndermek.</li>
+        <li>Kullanım hakkına sahip olmadığınız görsel, metin veya benzeri içerikleri yüklemek.</li>
         <li>Uygulamanın normal çalışmasını bozacak davranışlarda bulunmak.</li>
       </ul>
     </article>
 
     <article class="section-card" id="ocr">
       <div class="sec-label">
-        <span class="sec-num">07</span>
+        <span class="sec-num">08</span>
         <span class="sec-label-text">Fotoğraf ve OCR</span>
       </div>
       <h2>Fotoğraf ve OCR özellikleri</h2>
-      <p>Tahta tarama özelliği, kullanıcının seçtiği görsel üzerinde harf tanıma yapar. Tanıma sonucu her zaman hatasız olmayabilir. Tarama sonrası tahtaya aktarılan harfleri kontrol etmek kullanıcının sorumluluğundadır.</p>
+      <p>Görsel analiz özelliği, kullanıcının açıkça seçtiği görseller üzerinde harf, karakter, hücre, desen veya benzeri öğeleri tanımaya yönelik otomatik analiz yapabilir. Analiz sonuçları hatasız olmayabilir; sonuçları kontrol etmek ve doğrulamak kullanıcının sorumluluğundadır.</p>
+      <p>Uygulama üçüncü taraf uygulamalara erişmez, üçüncü taraf yazılımlardan veri toplamaz ve başka uygulamalarla teknik entegrasyon kurmaz. Görsel analiz özelliği genel amaçlıdır ve belirli bir oyun, hizmet veya platforma özgü değildir.</p>
       <p>Sohbet veya iletişim formu ile gönderilen görseller yönetici denetimine ve bu şartlara tabidir.</p>
     </article>
 
     <article class="section-card" id="availability">
       <div class="sec-label">
-        <span class="sec-num">08</span>
+        <span class="sec-num">09</span>
         <span class="sec-label-text">Doğruluk ve Garanti Sınırı</span>
       </div>
       <h2>Doğruluk, erişilebilirlik ve garanti sınırı</h2>
-      <p>Uygulama sonuçları; seçili sözlük, alfabe, desen ve kullanıcı girişlerine göre hesaplanır. Çözüm önerilerinin, kelime anlamlarının veya OCR sonuçlarının her durumda eksiksiz ve hatasız olacağı garanti edilmez.</p>
+      <p>Uygulama sonuçları; seçili sözlük, alfabe, desen, görsel analiz sonucu ve kullanıcı girişlerine göre hesaplanır. Analiz sonuçlarının, sözlük sonuçlarının, kelime anlamlarının, çözüm önerilerinin veya OCR sonuçlarının her durumda eksiksiz, güncel ve hatasız olacağı garanti edilmez.</p>
       <p>Uygulama zaman zaman bakım, güncelleme veya teknik sebeplerle kesintiye uğrayabilir.</p>
     </article>
 
     <article class="section-card" id="deletion">
       <div class="sec-label">
-        <span class="sec-num">09</span>
+        <span class="sec-num">10</span>
         <span class="sec-label-text">Hesap Silme ve Veri Talepleri</span>
       </div>
       <h2>Hesap silme ve veri talepleri</h2>
@@ -512,7 +531,7 @@
 
     <article class="section-card" id="changes">
       <div class="sec-label">
-        <span class="sec-num">10</span>
+        <span class="sec-num">11</span>
         <span class="sec-label-text">Şartlarda Değişiklik</span>
       </div>
       <h2>Şartlarda değişiklik</h2>
@@ -524,7 +543,7 @@
 
     <article class="section-card" id="contact">
       <div class="sec-label">
-        <span class="sec-num">11</span>
+        <span class="sec-num">12</span>
         <span class="sec-label-text">İletişim</span>
       </div>
       <h2>İletişim</h2>
