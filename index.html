@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="tr">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -8,32 +9,40 @@
   <meta name="theme-color" content="#0f0f10" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
-      --bg:        #0f0f10;
-      --surface:   #17171a;
+      --bg: #0f0f10;
+      --surface: #17171a;
       --surface-2: #1e1e22;
       --surface-3: #26262c;
-      --border:    rgba(255,255,255,0.07);
-      --border-2:  rgba(255,255,255,0.12);
-      --text:      #f0efe8;
-      --text-2:    #a8a59e;
-      --text-3:    #68655f;
-      --blue:      #60a5fa;
-      --blue-dim:  rgba(96,165,250,0.1);
-      --blue-border: rgba(96,165,250,0.22);
-      --amber:     #f5a623;
-      --amber-dim: rgba(245,166,35,0.1);
-      --amber-border: rgba(245,166,35,0.25);
-      --red:       #f87171;
-      --red-dim:   rgba(248,113,113,0.1);
-      --red-border: rgba(248,113,113,0.22);
-      --radius:    14px;
-      --mono:      'JetBrains Mono', monospace;
+      --border: rgba(255, 255, 255, 0.07);
+      --border-2: rgba(255, 255, 255, 0.12);
+      --text: #f0efe8;
+      --text-2: #a8a59e;
+      --text-3: #68655f;
+      --blue: #60a5fa;
+      --blue-dim: rgba(96, 165, 250, 0.1);
+      --blue-border: rgba(96, 165, 250, 0.22);
+      --amber: #f5a623;
+      --amber-dim: rgba(245, 166, 35, 0.1);
+      --amber-border: rgba(245, 166, 35, 0.25);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.1);
+      --red-border: rgba(248, 113, 113, 0.22);
+      --radius: 14px;
+      --mono: 'JetBrains Mono', monospace;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -49,8 +58,14 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* ── TOP BAR ── */
     .topbar {
@@ -62,7 +77,7 @@
       justify-content: space-between;
       padding: 14px 20px;
       padding-top: calc(14px + env(safe-area-inset-top, 0px));
-      background: rgba(15,15,16,0.85);
+      background: rgba(15, 15, 16, 0.85);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
@@ -125,7 +140,9 @@
       margin-bottom: 12px;
     }
 
-    .hero h1 span { color: var(--blue); }
+    .hero h1 span {
+      color: var(--blue);
+    }
 
     .hero-desc {
       font-size: 14px;
@@ -151,7 +168,11 @@
       border-radius: 20px;
     }
 
-    .chip a { color: var(--blue); font-family: var(--mono); font-size: 10.5px; }
+    .chip a {
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: 10.5px;
+    }
 
     /* ── QUICK NAV ── */
     .quick-nav {
@@ -165,12 +186,14 @@
       padding: 0 20px;
       display: flex;
       gap: 4px;
-      background: rgba(15,15,16,0.85);
+      background: rgba(15, 15, 16, 0.85);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
-    .quick-nav::-webkit-scrollbar { display: none; }
+    .quick-nav::-webkit-scrollbar {
+      display: none;
+    }
 
     .quick-nav a {
       flex-shrink: 0;
@@ -201,7 +224,9 @@
     }
 
     /* ── CONTENT ── */
-    .content { padding: 0 20px; }
+    .content {
+      padding: 0 20px;
+    }
 
     /* ── SECTION CARD ── */
     .section-card {
@@ -253,7 +278,9 @@
       margin-bottom: 10px;
     }
 
-    p:last-child { margin-bottom: 0; }
+    p:last-child {
+      margin-bottom: 0;
+    }
 
     ul {
       list-style: none;
@@ -282,7 +309,9 @@
     }
 
     /* Yasaklı kullanım — kırmızı liste */
-    .danger-list li::before { color: var(--red); }
+    .danger-list li::before {
+      color: var(--red);
+    }
 
     /* ── NOTICE BOX ── */
     .notice-box {
@@ -293,7 +322,10 @@
       margin-top: 2px;
     }
 
-    .notice-box p { color: var(--text-2); margin: 0; }
+    .notice-box p {
+      color: var(--text-2);
+      margin: 0;
+    }
 
     .notice-label {
       font-family: var(--mono);
@@ -367,6 +399,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- TOP BAR -->
@@ -413,8 +446,10 @@
         <span class="sec-label-text">Şartların Kabulü</span>
       </div>
       <h2>Şartların kabulü</h2>
-      <p>Kelime Asistanı uygulamasını kullanarak bu Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş sayılırsınız. Bu şartları kabul etmiyorsanız uygulamayı kullanmamalısınız.</p>
-      <p>Misafir olarak devam etmeniz halinde de bu şartlar geçerlidir. Misafir kullanım başlatılırken şartları kabul etmeniz istenir.</p>
+      <p>Kelime Asistanı uygulamasını kullanarak bu Kullanım Şartlarını ve Gizlilik Politikasını kabul etmiş
+        sayılırsınız. Bu şartları kabul etmiyorsanız uygulamayı kullanmamalısınız.</p>
+      <p>Misafir olarak devam etmeniz halinde de bu şartlar geçerlidir. Misafir kullanım başlatılırken şartları kabul
+        etmeniz istenir.</p>
     </article>
 
     <article class="section-card" id="service">
@@ -423,8 +458,11 @@
         <span class="sec-label-text">Hizmetin Amacı</span>
       </div>
       <h2>Hizmetin amacı</h2>
-      <p>Kelime Asistanı; kullanıcı tarafından oluşturulan veya yüklenen veriler üzerinde analiz gerçekleştiren bağımsız bir yazılım aracıdır. Harf, kelime, sözlük, alfabe, desen ve tahta verileri üzerinden kullanıcıya yardımcı analiz sonuçları sunar.</p>
-      <p>Uygulama herhangi bir üçüncü taraf oyun, marka, hizmet veya platform tarafından desteklenmemekte, onaylanmamakta ve bunlarla ilişkili değildir.</p>
+      <p>Kelime Asistanı; kullanıcı tarafından oluşturulan veya yüklenen veriler üzerinde analiz gerçekleştiren bağımsız
+        bir yazılım aracıdır. Harf, kelime, sözlük, alfabe, desen ve tahta verileri üzerinden kullanıcıya yardımcı
+        analiz sonuçları sunar.</p>
+      <p>Uygulama herhangi bir üçüncü taraf oyun, marka, hizmet veya platform tarafından desteklenmemekte,
+        onaylanmamakta ve bunlarla ilişkili değildir.</p>
     </article>
 
     <article class="section-card" id="third-party">
@@ -433,8 +471,11 @@
         <span class="sec-label-text">Üçüncü Taraf Hizmetler</span>
       </div>
       <h2>Üçüncü taraf hizmetler ve kullanıcı sorumluluğu</h2>
-      <p>Kelime Asistanı bağımsız bir yazılım ürünüdür. Üçüncü taraf oyunlar, uygulamalar, hesaplar, platformlar veya hizmetlerle teknik entegrasyon kurmaz ve bu hizmetlerdeki hesaplara erişmez.</p>
-      <p>Kullanıcının üçüncü taraf hizmetleri nasıl kullandığı kendi sorumluluğundadır. Başka hizmetlerin kullanım koşullarına, kurallarına veya politikalarına uyma yükümlülüğü kullanıcıya aittir; uygulama bu uyumu denetlemez.</p>
+      <p>Kelime Asistanı bağımsız bir yazılım ürünüdür. Üçüncü taraf oyunlar, uygulamalar, hesaplar, platformlar veya
+        hizmetlerle teknik entegrasyon kurmaz ve bu hizmetlerdeki hesaplara erişmez.</p>
+      <p>Kullanıcının üçüncü taraf hizmetleri nasıl kullandığı kendi sorumluluğundadır. Başka hizmetlerin kullanım
+        koşullarına, kurallarına veya politikalarına uyma yükümlülüğü kullanıcıya aittir; uygulama bu uyumu denetlemez.
+      </p>
     </article>
 
     <article class="section-card" id="account">
@@ -445,8 +486,11 @@
       <h2>Hesap oluşturma ve güvenlik</h2>
       <ul>
         <li>Hesap bilgilerinizi doğru ve güncel tutmalısınız.</li>
-        <li>Misafir modunda e-posta alınmadan rastgele kullanıcı adıyla sınırlı bir hesap oluşturulur. Misafir hesaplar profil sayfasından e-posta ve parola belirlenerek veya Google hesabı bağlanarak normal hesaba dönüştürülebilir.</li>
-        <li>Misafir kullanıcılar uygulamayı sınırlı kullanır; oyun, sözlük, alfabe, desen ve tahta sayısı sınırlandırılabilir.</li>
+        <li>Misafir modunda e-posta alınmadan rastgele kullanıcı adıyla sınırlı bir hesap oluşturulur. Misafir hesaplar
+          profil sayfasından e-posta ve parola belirlenerek veya Google hesabı bağlanarak normal hesaba
+          dönüştürülebilir.</li>
+        <li>Misafir kullanıcılar uygulamayı sınırlı kullanır; oyun, sözlük, alfabe, desen ve tahta sayısı
+          sınırlandırılabilir.</li>
         <li>Şifrenizi ve oturum bilgilerinizi korumak sizin sorumluluğunuzdadır.</li>
         <li>Başkasının hesabını izinsiz kullanamazsınız.</li>
         <li>Kötüye kullanım tespit edilirse hesap erişimi kısıtlanabilir.</li>
@@ -459,9 +503,13 @@
         <span class="sec-label-text">Kullanıcı İçerikleri</span>
       </div>
       <h2>Kullanıcı içerikleri</h2>
-      <p>Uygulama içinde çalışma alanı, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi içerikler oluşturabilirsiniz.</p>
-      <p>Misafir kullanıcılar sohbet içinde metin mesajı gönderebilir; ancak resimli sohbet mesajı gönderemez. Hesabında e-posta bulunmayan kullanıcıların iletişim formunda geçerli e-posta adresi girmesi gerekir.</p>
-      <p>Gönderdiğiniz veya yüklediğiniz içeriklerin hukuka uygun, size ait veya kullanım hakkına sahip olduğunuz içerikler olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik olarak işlenmesi için Kelime Asistanı'na gerekli kullanım iznini vermiş olursunuz.</p>
+      <p>Uygulama içinde çalışma alanı, sözlük, alfabe, desen, tahta, sohbet mesajı, görsel ve iletişim mesajı gibi
+        içerikler oluşturabilirsiniz.</p>
+      <p>Misafir kullanıcılar sohbet içinde metin mesajı gönderebilir; ancak resimli sohbet mesajı gönderemez. Hesabında
+        e-posta bulunmayan kullanıcıların iletişim formunda geçerli e-posta adresi girmesi gerekir.</p>
+      <p>Gönderdiğiniz veya yüklediğiniz içeriklerin hukuka uygun, size ait veya kullanım hakkına sahip olduğunuz
+        içerikler olması gerekir. İçeriklerinizin uygulama içinde gösterilmesi, saklanması, denetlenmesi ve teknik
+        olarak işlenmesi için Kelime Asistanı'na gerekli kullanım iznini vermiş olursunuz.</p>
     </article>
 
     <article class="section-card" id="moderation">
@@ -470,8 +518,10 @@
         <span class="sec-label-text">Sohbet ve Moderasyon</span>
       </div>
       <h2>Sohbet ve moderasyon</h2>
-      <p>Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler yönetici onayına düşer ve uygun bulunursa genel sohbette yayınlanabilir.</p>
-      <p>Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya kural ihlali sebebiyle kaldırılabilir. Gerekli durumlarda kullanıcı hesabı kısıtlanabilir veya banlanabilir.</p>
+      <p>Sohbet mesajları ve görseller doğrudan yayınlanmaz. İçerikler yönetici onayına düşer ve uygun bulunursa genel
+        sohbette yayınlanabilir.</p>
+      <p>Onaylı içerikler daha sonra şikayet, güvenlik incelemesi veya kural ihlali sebebiyle kaldırılabilir. Gerekli
+        durumlarda kullanıcı hesabı kısıtlanabilir veya banlanabilir.</p>
     </article>
 
     <article class="section-card" id="prohibited">
@@ -498,8 +548,28 @@
         <span class="sec-label-text">Fotoğraf ve OCR</span>
       </div>
       <h2>Fotoğraf ve OCR özellikleri</h2>
-      <p>Görsel analiz özelliği, kullanıcının açıkça seçtiği görseller üzerinde harf, karakter, hücre, desen veya benzeri öğeleri tanımaya yönelik otomatik analiz yapabilir. Analiz sonuçları hatasız olmayabilir; sonuçları kontrol etmek ve doğrulamak kullanıcının sorumluluğundadır.</p>
-      <p>Uygulama üçüncü taraf uygulamalara erişmez, üçüncü taraf yazılımlardan veri toplamaz ve başka uygulamalarla teknik entegrasyon kurmaz. Görsel analiz özelliği genel amaçlıdır ve belirli bir oyun, hizmet veya platforma özgü değildir.</p>
+      <p>
+        Görüntü İşleme (OCR) özelliğini kullanırken sağladığınız görüntülerin içeriğinden tamamen siz sorumlusunuz. Bu
+        özellik, kişisel ve oyun tahtalarını okumak amacıyla sağlanmış olup, başka kişi ya da kurumlara ait özel
+        bilgileri işlemek için kullanılmamalıdır. Sistemimiz bu fotoğrafları saklamaz ve gizliliğinizi korur.
+      </p>
+
+      <h2>Yüzer Pencere Kullanımı ve Sorumluluklar</h2>
+      <p>
+        Hizmet, diğer uygulamaları kullanırken size eş zamanlı yardımcı olabilmek adına cihazınızdan "Diğer
+        Uygulamaların Üzerinde Görüntüleme" izni talep edebilir. Bu izni vererek uygulamanın ekranınızda yüzer
+        bir pencere veya baloncuk olarak çalışmasına onay vermiş olursunuz.
+      </p>
+      <p>
+        Kullanıcı, bu özelliği yalnızca kişisel kullanım amacıyla ve diğer üçüncü taraf hizmetlerin ya da oyunların
+        kurallarını (Hile politikaları, Kullanıcı Şartları vb.) ihlal etmeden kullanmakla sorumludur. Uygulama
+        geliştiricileri, bu veya benzeri araçların diğer uygulamalarda (oyunlar vb.) kullanımından doğabilecek herhangi
+        bir kural ihlalinden, hesabınızın askıya alınmasından veya yasaklanmasından sorumlu tutulamaz.
+      </p>
+
+      <p>Uygulama üçüncü taraf uygulamalara erişmez, üçüncü taraf yazılımlardan veri toplamaz ve başka uygulamalarla
+        teknik entegrasyon kurmaz. Görsel analiz özelliği genel amaçlıdır ve belirli bir oyun, hizmet veya platforma
+        özgü değildir.</p>
       <p>Sohbet veya iletişim formu ile gönderilen görseller yönetici denetimine ve bu şartlara tabidir.</p>
     </article>
 
@@ -509,7 +579,9 @@
         <span class="sec-label-text">Doğruluk ve Garanti Sınırı</span>
       </div>
       <h2>Doğruluk, erişilebilirlik ve garanti sınırı</h2>
-      <p>Uygulama sonuçları; seçili sözlük, alfabe, desen, görsel analiz sonucu ve kullanıcı girişlerine göre hesaplanır. Analiz sonuçlarının, sözlük sonuçlarının, kelime anlamlarının, çözüm önerilerinin veya OCR sonuçlarının her durumda eksiksiz, güncel ve hatasız olacağı garanti edilmez.</p>
+      <p>Uygulama sonuçları; seçili sözlük, alfabe, desen, görsel analiz sonucu ve kullanıcı girişlerine göre
+        hesaplanır. Analiz sonuçlarının, sözlük sonuçlarının, kelime anlamlarının, çözüm önerilerinin veya OCR
+        sonuçlarının her durumda eksiksiz, güncel ve hatasız olacağı garanti edilmez.</p>
       <p>Uygulama zaman zaman bakım, güncelleme veya teknik sebeplerle kesintiye uğrayabilir.</p>
     </article>
 
@@ -519,7 +591,8 @@
         <span class="sec-label-text">Hesap Silme ve Veri Talepleri</span>
       </div>
       <h2>Hesap silme ve veri talepleri</h2>
-      <p>Hesabınızı uygulama içinden veya hesap silme bağlantısı üzerinden silebilirsiniz. Silme süreci ve veri işleme detayları Gizlilik Politikasında açıklanır.</p>
+      <p>Hesabınızı uygulama içinden veya hesap silme bağlantısı üzerinden silebilirsiniz. Silme süreci ve veri işleme
+        detayları Gizlilik Politikasında açıklanır.</p>
       <a class="contact-box" href="https://scrabblecozucu.com/hesap-sil">
         <div class="contact-box-inner">
           <strong>Hesap Silme</strong>
@@ -537,7 +610,8 @@
       <h2>Şartlarda değişiklik</h2>
       <div class="notice-box">
         <span class="notice-label">⚠ Bilgilendirme</span>
-        <p>Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu sayfada yayınlandığında yürürlüğe girer. Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
+        <p>Bu Kullanım Şartları zaman zaman güncellenebilir. Güncel metin bu sayfada yayınlandığında yürürlüğe girer.
+          Uygulamayı kullanmaya devam etmeniz güncel şartları kabul ettiğiniz anlamına gelir.</p>
       </div>
     </article>
 
@@ -547,7 +621,8 @@
         <span class="sec-label-text">İletişim</span>
       </div>
       <h2>İletişim</h2>
-      <p>Destek, geri bildirim, ban itirazı, hesap silme veya veri talepleri için uygulamadaki İletişim sayfasını kullanabilir ya da e-posta gönderebilirsiniz.</p>
+      <p>Destek, geri bildirim, ban itirazı, hesap silme veya veri talepleri için uygulamadaki İletişim sayfasını
+        kullanabilir ya da e-posta gönderebilirsiniz.</p>
       <a class="contact-box" href="mailto:scrabblecozucupro@gmail.com">
         <div class="contact-box-inner">
           <strong>E-posta</strong>
@@ -599,4 +674,5 @@
     document.querySelectorAll('article[id]').forEach(c => spyObs.observe(c));
   </script>
 </body>
+
 </html>
